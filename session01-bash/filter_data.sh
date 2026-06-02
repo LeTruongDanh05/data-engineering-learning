@@ -1,8 +1,10 @@
 if [ -z "$TARGET_DEPT" ]; then
-    echo "Error: You did not declare environment variable yet! TARGET_DEPT!"
-    echo "Please type this context first: export TARGET_DEPT=\"Tên_Phòng_Ban\""
+    echo "Error: TARGET_DEPT is empty!"
     exit 1
   fi
-> data_dept_employees.csv
-grep "$TARGET_DEPT" employees.csv >> data_dept_employees.csv
+BASE_DIR="/home/danh/de_foundations/session01/session01-bash"
+  INPUT_FILE="$BASE_DIR/employees.csv"
+  OUTPUT_FILE="$BASE_DIR/data_dept_employees.csv"
+> "$OUTPUT_FILE"
+/bin/grep "$TARGET_DEPT" "$INPUT_FILE" >> "$OUTPUT_FILE"
 echo "Filtered successfully! $TARGET_DEPT"
