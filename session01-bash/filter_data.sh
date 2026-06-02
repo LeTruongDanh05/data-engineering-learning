@@ -1,16 +1,8 @@
-#!/bin/bash
-
-#Check input file available
-if [ ! -f "employees.csv" ]; then
-    echo "Error: file employees.csv is not available!"
+if [ -z "$TARGET_DEPT" ]; then
+    echo "Error: You did not declare environment variable yet! TARGET_DEPT!"
+    echo "Please type this context first: export TARGET_DEPT=\"Tên_Phòng_Ban\""
     exit 1
-fi
-
-#Save header into a new file
-head -n 1 employees.csv > data_dept_employees.csv
-#Read each line of file, find the word "Data" and connect (>>) with new file
-grep "Marketing" employees.csv >> data_dept_employees.csv
-
-echo "Filter successfully! file: data_dept_employees.csv"
-echo "--- The information filtered ---"
-cat data_dept_employees.csv
+  fi
+> data_dept_employees.csv
+grep "$TARGET_DEPT" employees.csv >> data_dept_employees.csv
+echo "Filtered successfully! $TARGET_DEPT"
