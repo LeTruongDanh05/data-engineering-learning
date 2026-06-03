@@ -1,1 +1,8 @@
-data_dept_employees.csv
+# === Python & Data Warehouse (Session 02) ===
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.json
+*.csv
+*.db
